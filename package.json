@@ -1,0 +1,23 @@
+{
+  "name": "quartetcom-openapi-generator-php81-templates",
+  "version": "1.0.0",
+  "description": "openapi-generator template for PHP8.1(enum, type declarations)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/77web/openapi-generator-php81-templates.git"
+  },
+  "keywords": [
+    "openapi",
+    "php"
+  ],
+  "author": "77web",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/77web/openapi-generator-php81-templates/issues"
+  },
+  "homepage": "https://github.com/77web/openapi-generator-php81-templates#readme"
+}
