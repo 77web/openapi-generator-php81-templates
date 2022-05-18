@@ -83,11 +83,9 @@ class ObjectSerializer
                     $getter = $data::getters()[$property];
                     $value = $data->$getter();
                     if ($value !== null && !in_array($openAPIType, [{{&primitives}}], true)) {
-                        $callable = [$openAPIType, 'getAllowableEnumValues'];
-                        if (is_callable($callable)) {
-                            /** array $callable */
-                            $allowedEnumTypes = $callable();
-                            if (!in_array($value, $allowedEnumTypes, true)) {
+                        if (enum_exists($openAPIType) && $value instanceof \BackedEnum) {
+                            if (!is_a($value, $openAPIType)) {
+                                $allowedEnumTypes = call_user_func([$openAPIType, 'getAllowedEnumValues']);
                                 $imploded = implode("', '", $allowedEnumTypes);
                                 throw new \InvalidArgumentException("Invalid value for enum '$openAPIType', must be one of: '$imploded'");
                             }
